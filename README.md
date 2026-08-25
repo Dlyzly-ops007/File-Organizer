@@ -1,166 +1,37 @@
-# Advanced-File-Organizer-Python-
-A powerful and customizable file organizer that automatically sorts files into meaningful folders based on their type (Images, Music, Videos, Documents, Code, Archives, etc.).
-This version includes:
+# file-organizer
 
-This version includes:
+A desktop file sorter with a tkinter GUI. Point it at a folder and it sorts files into category subfolders (Images, Videos, Music, Documents, Archives, Code, Slides, Spreadsheets, Executables, Others) based on extension.
 
-Custom category mapping
+## Features
 
-Safe file moving (no overwriting)
+- Move or copy mode
+- Preview mode — see exactly what would happen before touching any files
+- Optional subfolder scanning (one level deep)
+- Live progress bar + color-coded log of every action
+- Automatic conflict handling — if a destination file already exists, the incoming file is renamed with a `_copy` suffix instead of overwriting
+- Runs the sort on a background thread so the UI never freezes
 
-Progress bar
+## Setup
 
-Colored terminal output
+```bash
+python file_sorting.py
+```
 
-Automatic folder creation
+No external dependencies — uses only the Python standard library (`tkinter`, `os`, `shutil`, `threading`).
 
-"Others" category for unknown file types
+## Usage
 
-Clean and beginner-friendly structure
+1. Browse to or paste a target folder path
+2. Choose **move** or **copy**
+3. Optionally enable **skip subfolders** or **preview only**
+4. Hit **run** — watch the log and progress bar
 
-🚀 Features
+Preview mode is a good first pass on any folder you haven't sorted before — it shows you the categorization without moving anything.
 
-✔ Organizes any folder with one command
+## Category mapping
 
-✔ Custom categories (Music, Videos, Documents, Images…)
+Extensions are mapped to categories in a single dict at the top of the script — easy to extend with new file types or categories.
 
-✔ Automatically groups files based on extension
+## License
 
-✔ Creates folders if they don’t exist
-
-✔ Prevents overwriting by adding _copy
-
-✔ Fast and clean tqdm progress bar
-
-✔ Color-coded output using colorama
-
-✔ Supports ALL common extensions
-
-✔ Unknown file types go into an Others folder
-
-📦 Requirements
-
-Only two external modules are used:
-
-Install dependencies:
-pip install tqdm colorama
-
-
-Everything else uses Python’s standard library.
-
-🛠 How to Use
-
-Download / clone the repository
-
-Place organizer.py anywhere
-
-Run the script:
-
-python organizer.py
-
-
-When asked, enter the folder path you want to organize.
-Example:
-
-Enter folder path to organize: C:\Users\YourName\Downloads
-
-
-The script will:
-
-Scan all files
-
-Detect their types
-
-Create folders like:
-
-Images/
-Music/
-Videos/
-Documents/
-Archives/
-Code/
-Others/
-
-
-Move each file safely
-
-📁 Category Mapping (Editable)
-
-You can edit categories in the script:
-
-CATEGORY_MAP = {
-    "Images": [".jpg", ".jpeg", ".png", ".gif", ".bmp"],
-    "Videos": [".mp4", ".mkv", ".mov", ".avi"],
-    "Music": [".mp3", ".wav", ".flac"],
-    "Documents": [".pdf", ".docx", ".doc", ".txt", ".xlsx"],
-    "Archives": [".zip", ".rar", ".7z"],
-    "Code": [".py", ".cpp", ".js", ".html", ".css", ".java"],
-}
-
-
-Add or remove any file type you want — the script adjusts automatically!
-
-🧠 How It Works
-
-Script reads all files in the chosen directory
-
-For each file:
-
-Gets extension (.mp3, .pdf, etc.)
-
-Matches it against CATEGORY_MAP
-
-If extension found → moves to that folder
-
-If not found → moves to Others
-
-For safety:
-
-If a file already exists in the destination folder, a copy is created:
-
-file.pdf → file_copy.pdf
-
-
-Shows progress with:
-
-Green bar
-
-Colored console output
-
-📸 Example
-Before:
-song.mp3
-image.png
-notes.pdf
-video.mp4
-script.py
-randomfile.xyz
-
-After running the script:
-Music/
-   song.mp3
-
-Images/
-   image.png
-
-Documents/
-   notes.pdf
-
-Videos/
-   video.mp4
-
-Code/
-   script.py
-
-Others/
-   randomfile.xyz
-
-🎯 Perfect For
-
-Downloads folder cleanup
-
-Desktop cleanup
-
-Students, developers, office users
-
-Automating messy directories
+PolyForm Noncommercial 1.0.0 — see [LICENSE](LICENSE). Free for personal, educational, and noncommercial use.
